@@ -20,7 +20,7 @@ pipeline {
         }
                 stage('postman') {
             steps {
-                sh "newman run taller runner.postman_collection.json"
+                sh "newman run taller_runner.postman_collection.json"
             }
         }
     }

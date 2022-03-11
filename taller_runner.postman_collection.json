@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "4575da8b-c339-4a8a-8c4d-3a31c030b67e",
-		"name": "taller runner",
+		"name": "taller_runner",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -55,6 +55,55 @@
 					],
 					"path": [
 						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://jsonplaceholder.typicode.com/photos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type header is present\", () => {",
+							"  pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 300ms\", () => {",
+							"  pm.expect(pm.response.responseTime).to.be.below(300);",
+							"});",
+							"",
+							"pm.test(\"Response length 5000\", () => {",
+							"  pm.expect(pm.response.json()).to.have.lengthOf(5000);",
+							"});",
+							"",
+							"pm.test(\"Response title 1 is 'accusamus beatae ad facilis cum similique qui sunt'\", () => {",
+							"  pm.expect(pm.response.json()[0].title).to.equal(\"accusamus beatae ad facilis cum similique qui sunt\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/photos",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"photos"
 					]
 				}
 			},
