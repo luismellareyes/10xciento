@@ -13,8 +13,8 @@
 					"script": {
 						"exec": [
 							"const jsonData = pm.response.json();",
-							"pm.test(\"Response time is less than 200ms\", () => {",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);",
+							"pm.test(\"Response time is less than 1000ms\", () => {",
+							"  pm.expect(pm.response.responseTime).to.be.below(1000);",
 							"}); ",
 							"",
 							"pm.test(\"Response property matches environment variable\", function () {",
