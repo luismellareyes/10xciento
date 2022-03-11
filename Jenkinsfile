@@ -18,5 +18,10 @@ pipeline {
                 sh "mvn test"
             }
         }
+                stage('postman') {
+            steps {
+                sh "newman run taller runner.postman_collection.json"
+            }
+        }
     }
 }
